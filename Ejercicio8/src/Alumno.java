@@ -1,17 +1,18 @@
+import java.util.Scanner;
 
 public class Alumno {
 
 	private String nombre;
-	private int Curso;
+	private int curso;
 	
 	public Alumno() {
 		this.nombre = "";
-		Curso = 0;
+		this.curso = 0;
 	}
 	
 	public Alumno(String nombre, int curso) {
 		this.nombre = nombre;
-		Curso = curso;
+		this.curso = curso;
 	}
 
 	
@@ -24,16 +25,16 @@ public class Alumno {
 	}
 
 	public int getCurso() {
-		return Curso;
+		return curso;
 	}
 
 	public void setCurso(int curso) {
-		Curso = curso;
+		curso = curso;
 	}
 
 	@Override
 	public String toString() {
-		return "Alumno [nombre=" + nombre + ", Curso=" + Curso + "]";
+		return "nombre : " + nombre + ", Curso : " + curso;
 	}
 	
 	
