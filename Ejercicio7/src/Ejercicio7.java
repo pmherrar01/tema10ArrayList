@@ -42,6 +42,25 @@ public class Ejercicio7 {
 		 System.out.println("La temperatura media del mes es: " + (suma/(NUMSEMANAS*NUMDIASSEMANA)));
 	}
 	
+	public static void diaMasCaluroso(ArrayList<ArrayList<Integer>> lista) {
+		int i,j,diaCaluroso=lista.get(0).get(0);
+		for(i = 0; i < NUMSEMANAS; i++) {
+			for(j = 0; j < NUMDIASSEMANA;j++) {
+				if(lista.get(i).get(j)>diaCaluroso) {
+					diaCaluroso=lista.get(i).get(j);
+				}
+			}
+		}
+		System.out.println("El dia mas caluroso son: ");
+		for(i = 0; i < NUMSEMANAS; i++) {
+			for(j = 0; j < NUMDIASSEMANA;j++) {
+				if(lista.get(i).get(j)==diaCaluroso) {
+					System.out.println("El " + VNOMBRES[j] + " de la semana " + (i+1) + " con " + diaCaluroso + " grados");
+				}
+			}
+		}
+	}	
+	
 	public static void menu(ArrayList<ArrayList<Integer>> lista) {
 		Scanner entrada = new Scanner(System.in);
 		int num;
@@ -70,6 +89,7 @@ public class Ejercicio7 {
 				break;
 			case 4:
 				System.out.println("Buscando dia mas caluroso...");
+				diaMasCaluroso(lista);
 				break;
 			case 5: 
 				System.out.println("Saliendo...");
