@@ -1,56 +1,74 @@
-import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Ejercicio4 {
 
-	public static int pedirNumero() {
-		Scanner entrada = new Scanner(System.in);
-		int num;
-		System.out.println("Introduce un numero entero: ");
-		num=entrada.nextInt();
-		return num;
-	}
+    public static int pedirNumero(){
+        Scanner teclado = new Scanner(System.in);
+        int num;
+        System.out.print("Entero: ");
+        num = teclado.nextInt();
+        return num;
+    }
+    
+    public static void rellenarLista(ArrayList<Integer> lista){
+        int num;
+        num = pedirNumero();
+        while(num > 0){
+            lista.add(num);
+            num = pedirNumero();
+        }
+    }
+    
+    public static void sustituirRepetidosPorCero(ArrayList<Integer> lista, int num){
+        int primero, ultimo, i;  
+        
+        primero = lista.indexOf(num);
+        ultimo = lista.lastIndexOf(num);
+        for(i = primero;i <= ultimo;i++){  
+            if  (lista.get(i) == num){
+                lista.set(i, 0);
+            }
+        }
+    }
+    
+    public static boolean esRepetido(ArrayList<Integer> lista, int num){
+        int posIni = lista.indexOf(num);
+        int posFin = lista.lastIndexOf(num);
+        
+        if  (posIni == posFin){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+    
+    public static void recorrerLista(ArrayList<Integer> lista){
+        int num;
+        for(int i = 0;i < lista.size();i++){
+            num = lista.get(i);
+            if  (num != 0){
+                if  (esRepetido(lista, num)){  
+                    sustituirRepetidosPorCero(lista, num);
+                }
+            }
+        }
+    }
 
-	public static void rellenarLista(ArrayList<Integer> lista1,ArrayList<Integer> lista2) {
-		Scanner entrada = new Scanner(System.in);
-		int num = pedirNumero();
-		while(num>0){
-			lista1.add(num);
-			lista2.add(num);
-			num=pedirNumero();
-		}
-
-	}
-
-	public static void cambiarDuplicados(ArrayList<Integer> lista2, int num) {
-		int i;
-		for(i = 0; i< lista2.size(); i++) {
-			if(lista2.get(i)==num) {
-				lista2.set(i, 0);
-			}
-
-		}
-	}
-
-	public static void mostrarListas(ArrayList<Integer> lista1,ArrayList<Integer> lista2) {
-		int i;
-		for(i = 0; i < lista1.size();i++) {
-			System.out.print(lista1.get(i));
-		}
-		System.out.print(" ---> ");
-		for(i = 0; i < lista2.size();i++) {
-			System.out.print(lista2.get(i));
-		}
-
-	}
-
-	public static void main(String[] args) {
-		ArrayList<Integer> lista1 = new ArrayList<>();
-		ArrayList<Integer> lista2 = new ArrayList<>();
-		int num=pedirNumero();
-		rellenarLista(lista1,lista2);
-		cambiarDuplicados(lista2,num);
-		mostrarListas(lista1,lista2);
-	}
-
+    public static void mostrarLista(ArrayList<Integer> lista){
+        for(int i = 0; i < lista.size();i++){
+            System.out.print("["+lista.get(i)+"]");
+        }
+        System.out.print("\n");
+    }
+    
+    public static void main(String[] args) {
+        ArrayList<Integer> lista = new ArrayList <Integer>();
+        rellenarLista(lista);
+        mostrarLista(lista);
+        recorrerLista(lista);
+        mostrarLista(lista);
+    }
+    
 }
