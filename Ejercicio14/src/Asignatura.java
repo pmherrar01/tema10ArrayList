@@ -25,6 +25,13 @@ public class Asignatura {
 	public void setNotaAsignatura(float notaAsignatura) {
 		this.notaAsignatura = notaAsignatura;
 	}
+
+	@Override
+	public String toString() {
+		return nombreAsignatura + ": " + notaAsignatura;
+	}
+	
+	
 	
 	
 	
