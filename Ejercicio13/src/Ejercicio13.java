@@ -27,21 +27,32 @@ public class Ejercicio13 {
 		}
 		System.out.println("Ventas totales: " + suma + " ventas");
 	}
-	
+
 	public static void mesMasVentas(ArrayList<Venta> lista) {
 		int mesMasVentas=0, i;
-		
+
 		for(i = 0; i<lista.size(); i++) {
 			if (lista.get(i).getVentas() > mesMasVentas) {
 				mesMasVentas = lista.get(i).getVentas();
 			}
 		}
-		
+
 		for (i = 0; i < lista.size();i++) {
 			if(mesMasVentas == lista.get(i).getVentas()) {
 				System.out.println("Mes con mas ventas: " + lista.get(i).getNombreMes());
 			}
 		}
+	}
+
+	public static void mostrarMesesA(ArrayList<Venta> lista) {
+		int i, suma=0;
+		for(i=0;i<lista.size();i++) {
+			if(lista.get(i).getNombreMes().charAt(0) == 'A') {
+				suma = suma + lista.get(i).getVentas();
+
+			}
+		}
+		System.out.print("Ventas totales de meses que empiezan por A: " + suma);
 	}
 
 	public static void menu(ArrayList<Venta> lista) {
@@ -69,9 +80,10 @@ public class Ejercicio13 {
 				break;
 			case 3:
 				System.out.println("Mostrande ventas totales...");
-				 mostrarVentasTotales(lista);
+				mostrarVentasTotales(lista);
 				break;
 			case 4:
+				mostrarMesesA(lista);
 				System.out.println("Mostrando ventas de los meses que emoiezan por 'A'");
 				break;
 			case 5:

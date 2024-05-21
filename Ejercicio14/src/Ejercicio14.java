@@ -16,13 +16,13 @@ public class Ejercicio14 {
 			System.out.println("5- Salir del programa");
 			System.out.print("Opcion: ");
 			num=entrada.nextInt();
-			
+
 			switch (num){
 			case 1:
 				do {
-					
+
 					System.out.println("¿Quieres introducir otro alumno?");
-					respuesta=entrada.nextLine();
+					respuesta=entrada1.nextLine();
 					break;	
 				}while(respuesta.equalsIgnoreCase("si"));
 			case 2:
@@ -38,10 +38,10 @@ public class Ejercicio14 {
 				System.out.println();
 				break;
 			}
-			
+
 		}while(num!=5);
 	}
-	
+
 	public static void main(String[] args) {
 
 		ArrayList<Alumno> lista = new ArrayList<>();
