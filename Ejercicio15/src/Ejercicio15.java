@@ -31,6 +31,39 @@ public class Ejercicio15 {
             empresaAux.mostrarEmpleadosDeEmpresaConA();
         }
     }
+    
+    public static ArrayList<Empleado> getListaConTodosEmpleados(ArrayList<Empresa> lEmpresa){
+        ArrayList<Empleado> lConTodos = new ArrayList<>();
+        ArrayList<Empleado> lAux;
+        for(int i = 0;i < lEmpresa.size();i++){
+           lAux = lEmpresa.get(i).getlEmpleados();
+           for(int j = 0;j < lAux.size();j++){
+               lConTodos.add(lAux.get(j));
+           }
+        }
+        return lConTodos;
+    }
+    
+    public static void burbuja(ArrayList<Empleado> lConTodos){
+        Empleado aux;
+        for(int i = 0;i < lConTodos.size();i++){
+            for(int j = 0;j < lConTodos.size()-1;j++){
+                if  (lConTodos.get(j).getSueldo() > lConTodos.get(j+1).getSueldo()){
+                    aux = lConTodos.get(j);
+                    lConTodos.set(j, lConTodos.get(j+1));
+                    lConTodos.set(j+1, aux);
+                }
+            }
+        }
+    }
+    
+    public static void ordenarPorSueldo(ArrayList<Empresa> lEmpresa){
+        ArrayList<Empleado> lConTodos = getListaConTodosEmpleados(lEmpresa);
+        burbuja(lConTodos);
+        for(int i = 0;i < lConTodos.size();i++){
+            lConTodos.get(i).mostrarEmpleado();
+        }
+    }
 
 	public static void menu(ArrayList<Empresa> lEmpresa) {
 		Scanner entrada = new Scanner(System.in);
@@ -55,6 +88,7 @@ public class Ejercicio15 {
 				mostrarEmpleadosConA(lEmpresa);
 				break;
 			case 4:
+				ordenarPorSueldo(lEmpresa);
 				break;
 			case 5:
 				break;
