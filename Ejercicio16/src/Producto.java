@@ -47,11 +47,11 @@ public class Producto {
 		Scanner entrada1 = new Scanner(System.in);
 		Scanner entrada2 = new Scanner(System.in);
 		
-		System.out.println("Nombre del producto: ");
+		System.out.print("Nombre del producto: ");
 		this.nombreProducto=entrada.nextLine();
-		System.out.println("Precio: ");
+		System.out.print("Precio: ");
 		this.precio=entrada1.nextFloat();
-		System.out.println("Strock: ");
+		System.out.print("Strock: ");
 		this.stock=entrada2.nextInt();
 		
 		Producto producto = new Producto(this.nombreProducto,this.precio,this.stock);
@@ -59,6 +59,8 @@ public class Producto {
 		return producto;
 	}
 	
-	
+	public void mostrarDatos() {
+		System.out.println("Nombre producto: " + this.nombreProducto + "\n Precio: " + this.precio +"€" + "\n Stock: " + this.stock + " unidades");
+	}
 	
 }
