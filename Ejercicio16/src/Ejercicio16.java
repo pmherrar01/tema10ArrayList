@@ -35,7 +35,7 @@ public class Ejercicio16 {
 	}
 	
 	public static void comprarProductos(ArrayList<Producto> lProductos) {
-		
+		mostrarProductos(lProductos);
 	}
 	
 	public static void menuAdministracion(ArrayList<Producto> lProductos) {
